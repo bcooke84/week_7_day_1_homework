@@ -1,9 +1,9 @@
 package kaiju;
 
 public abstract class Kaiju {
-    private String name;
-    private int healthValue;
-    private int attackValue;
+    protected String name;
+    protected int healthValue;
+    protected int attackValue;
 
     public Kaiju(String name, int healthValue, int attackValue) {
         this.name = name;
@@ -13,6 +13,13 @@ public abstract class Kaiju {
 
     public String roar() {
         return "ROAR!";
+    }
+
+    public String receiveDamage(int damage) {
+        this.healthValue = this.healthValue - damage;
+        if (this.healthValue > 0) {
+        return this.name + " has taken damage, health is now " + this.healthValue + "!"; }
+        else return this.name + " is dead!";
     }
 
 
